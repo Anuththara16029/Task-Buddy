@@ -21,7 +21,7 @@ class AddTask : AppCompatActivity() {
 
         db = TaskDatabaseHelper(this)
 
-        binding.saveButton.setOnClickListener {
+        binding.SaveButton.setOnClickListener {
             val title = binding.titleEditText.text.toString()
             val content = binding.contentEditText.text.toString()
             val task = Task(0,title,content)

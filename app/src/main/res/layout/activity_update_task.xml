@@ -6,37 +6,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".AddTask">
+    tools:context=".UpdateTask">
 
     <!-- Heading TextView -->
     <TextView
-        android:id="@+id/addNoteHeading"
+        android:id="@+id/editNoteHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"
-        android:text="Add Task."
+        android:text="Edit Task."
         android:textColor="@color/orange"
         android:textSize="24sp" />
 
     <!-- Save Button ImageView -->
     <ImageView
-        android:id="@+id/SaveButton"
+        android:id="@+id/updatesaveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/baseline_done_24"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@id/addNoteHeading" />
+        android:layout_alignTop="@id/editNoteHeading" />
 
     <!-- Title EditText -->
     <EditText
-        android:id="@+id/titleEditText"
+        android:id="@+id/updateTitleEditText"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:hint="Enter Task title"
         android:padding="12dp"
         android:textSize="20sp"
-        android:layout_below="@id/addNoteHeading"
+        android:layout_below="@id/editNoteHeading"
         android:background="@drawable/orange_border"
         android:layout_marginTop="10dp"
         android:maxLines="1"
@@ -44,7 +44,7 @@
 
     <!-- Content EditText -->
     <EditText
-        android:id="@+id/contentEditText"
+        android:id="@+id/updateContentEditText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:hint="Enter the description"
@@ -53,7 +53,7 @@
         android:textSize="18sp"
         android:fontFamily="@font/poppins"
         android:background="@drawable/orange_border"
-        android:layout_below="@id/titleEditText"
+        android:layout_below="@id/updateTitleEditText"
         android:layout_marginTop="12dp" />
 
 </RelativeLayout>
