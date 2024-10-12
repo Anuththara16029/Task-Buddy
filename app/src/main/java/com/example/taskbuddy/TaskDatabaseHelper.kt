@@ -19,7 +19,8 @@ class TaskDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
 
     override fun onCreate(db: SQLiteDatabase?) {
         // SQL query to create the table
-        val createTableQuery = "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT, $COLUMN_TITLE TEXT, $COLUMN_CONTENT TEXT)"
+        val createTableQuery =
+            "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT, $COLUMN_TITLE TEXT, $COLUMN_CONTENT TEXT)"
         db?.execSQL(createTableQuery)
     }
 
@@ -41,4 +42,28 @@ class TaskDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         db.insert(TABLE_NAME, null, values)
         db.close()
     }
+
+    fun getAllTasks(): List<Task> {
+        val taskList = mutableListOf<Task>()
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_NAME"
+        val cursor = db.rawQuery(query, null)
+
+        while (cursor.moveToNext()){
+
+            val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+            val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+            val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
+
+            val task = Task(id, title, content)
+            taskList.add(task)
+
+        }
+
+        cursor.close()
+        db.close()
+        return taskList
+    }
+
+
 }
